@@ -28,6 +28,15 @@ class Artist
     end
   end
   
-  
-  
+  def add_song(song)
+    song.artist = self unless song.artist
+    songs << song unless songs.include?(song)
+  end
+
+  def genres
+    genres = songs.map do |song|
+      song.genre
+    end
+    genres.uniq
+  end
 end
